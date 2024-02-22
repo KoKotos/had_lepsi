@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Snake</title>
+
+<script src="./game.js" defer type="module"></script>
+<style>
+    .pause-button {
+        background-color: rgba(54, 54, 54, 0.979);
+        border: 3px solid black;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .pause-button.active {
+        background-color: #007bff; /* Change to the color when toggled on */
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div id="game-board"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <h1 class="score">Score: <span id="score"></span></h1>
+                <h1 class="score" id="bestScore"></h1>
+            </div>
+        </div>
+
+        <div id="settings">
+            <div class="set" style="width: 500px;">
+                <p for="rangeInput">Snake speed:</p>
+                <input type="range" id="rangeInput" min="1" max="100" step="1" value="30" class="rangeinputs">
+              
+                <p><span id="currentValue">30</span></p>
+            </div>
+            <div class="set" style="width: 500px;">
+                <p for="rangeInputFood">Snake expansion:</p>
+                <input type="range" id="rangeInputFood" min="1" max="100" step="1" value="1" class="rangeinputs">
+              
+                <p><span id="currentValueFood">1</span></p>
+            </div>
+            <div class="set" style="width: 500px;">
+                <p for="snakeColor">Snake's head color:</p>
+                <input type="color" value="#1b201b" id="snakeHeadColor" >
+                <p style="margin-left: 20px;" for="snakeColor">Snake's body color:</p>
+                <input type="color" value="#6e826e" id="snakeColor" >
+              
+            </div>
+            <div class="set" style="width: 500px";>
+                <p for="snakeColor">Background color:</p>
+                <input type="color" value="#4e8a42" id="backgroundColor">
+                <p style="margin-left: 20px;" for="backgroundColor">Food color:</p>
+                <input type="color" value="#8e2929" id="foodColor">
+              
+            </div>
+            <div class="random-div">
+                <div>
+                    <button class="rnd-button" id="randomButton">Random settings</button>
+                </div>
+                <div>
+                    <button class="rnd-button"  id="randomButtonColors">Random colors</button>
+                </div>
+                <div>
+                    <button id="pauseButton" class="pause-button" onclick="toggleButton()">Pause</button>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <script>
+        function toggleButton() {
+            var button = document.getElementById("pauseButton");
+            button.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
